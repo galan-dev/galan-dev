@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Galan Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/bg.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    try {
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    //var sps = new SpeechSynthesis();
+    var recognition = new SpeechRecognition();
+    var synth = window.speechSynthesis;
+    var u = new SpeechSynthesisUtterance();
+    // u.text = 'Hello World';
+    // u.lang = 'en-US';
+    // u.rate = 1.2;
+    // u.onend = function(event) { alert('Finished in ' + event.elapsedTime + ' seconds.'); }
+    // speechSynthesis.speak(u);
+    // console.log(speechSynthesis.getVoices());
+    }
+    catch(e) {
+    console.error(e);
+    }
+
+    try{
+        speechSynthesis.cancel();
+    }catch(e){
+        console.log(e);
+    }
+  </script>
+  <script>
+    $(document).ready(function(){
+        $("#btnSubmitAnswer").click(function(){
+            if(/([^\s])/.test($("#userAnswer").val().toString())){
+                $('#alltext').append('\n' + 'Q: ' + $("#displayQuestion").text());
+                $('#alltext').append('\n' + '['+ $('#currTimer').text() +']'+ 'A: '+ $("#userAnswer").val().toString().trim());
+                $("#userAnswer").val('');
+                var sH = document.getElementById("alltext").scrollHeight;
+                $("#alltext").animate({ scrollTop: sH }, 'slow');
+            }else{
+                alert("please enter your answer")
+            }
+        });
+    });
+  </script>
+  <script>
+      // stop watch
+      var sw = {
+  /* [INIT] */
+  etime : null, // holds HTML time display
+  timer : null, // timer object
+  now : 0, // current timer
+  init : function () {
+    // Get HTML elements
+    sw.etime = document.getElementById("sw-time");
+  },
+
+  /* [ACTIONS] */
+  tick : function () {
+  // tick() : update display if stopwatch running
+
+    // Calculate hours, mins, seconds
+    sw.now++;
+    var remain = sw.now;
+    var hours = Math.floor(remain / 3600);
+    remain -= hours * 3600;
+    var mins = Math.floor(remain / 60);
+    remain -= mins * 60;
+    var secs = remain;
+
+    // Update the display timer
+    if (hours<10) { hours = "0" + hours; }
+    if (mins<10) { mins = "0" + mins; }
+    if (secs<10) { secs = "0" + secs; }
+    sw.etime.innerHTML = "<h3 id='currTimer'>" + hours + ":" + mins + ":" + secs + "</h3>";
+  },
+
+  start : function () {
+  // start() : start the stopwatch
+
+    sw.timer = setInterval(sw.tick, 1000);
+  },
+
+  stop  : function () {
+  // stop() : stop the stopwatch
+
+    clearInterval(sw.timer);
+
+  },
+
+  reset : function () {
+  // reset() : reset the stopwatch
+
+    // Stop if running
+    if (sw.timer != null) { sw.stop(); }
+
+    // Reset time
+    sw.now = -1;
+    sw.tick();
+  }
+};
+window.addEventListener("load", sw.init);
+
+  </script>
+  <script>
+    var speechInUse = false;
+    var started = false;
+    $(document).ready(function(){
+        $('#questionContainer').hide();
+        $('#pause').hide();
+        var questions = [
+            'Tell me about a time where you felt defeated; e.g., your project was falling apart, you were unable to meet your boss’s timeline goals, your idea was dismissed, etc. How did you respond to the adversity?',
+            'Describe a time when you were asked to perform a task or spearhead an initiative that went against your values. What did you do? What was the outcome?',
+            'Think about the most exciting and energizing aspect of your current or most recent position. What did you specifically enjoy about it? Why?',
+            'Think back to one of the most energy-depleting periods in your current or most recent position. What was going on? How did you respond to it? What was the outcome?',
+            'Tell me about a time when you had too much to do, but not enough resources (this could include staffing, time, money). How did you handle the pressure, overcome the deficit and/or achieve goals?',
+            'Describe a situation where you had to make a tough decision that normally would have been escalated to your boss. How did you handle the decision-making process? What was the result?',
+            'Tell me about a time when you went the extra mile when it would have been just as acceptable to perform the bare minimum. Why did you exert the effort? What was the outcome?',
+            'Describe a situation where you and a colleague whom you relied upon for support (e.g., to complete a project) were in conflict. How did you address the situation?',
+            'Provide an example of a difficult situation with a major client that you had to resolve. What steps did you take? What was the outcome?',
+            'Tell me about a time when you had to convince another staff member or leader, whom you had no direct authority over, to buy into a new idea or project? How did you accomplish this?',
+            'Tell me about a time you made a blunder on the job that cost your company time or money. How did you handle the aftermath?'];
+        var randomQuestion = Math.floor(Math.random() * questions.length);
+        var currQ = randomQuestion;
+        console.log(currQ);
+        $("#displayQuestion").text(questions[randomQuestion]);
+        $('.btn-controller').click(function(){
+            var buttonId = this.id;
+            console.log(buttonId);
+            switch(true){
+                case buttonId == "start" && !started:
+                    $('#questionContainer').show();
+                    $('#startContainer').hide();
+                    $('#pause').show();
+                    $('#play').hide();
+                    started = true;
+                    sw.start();
+                    console.log(started);
+                    // show and start timer
+                    break;
+                case buttonId == "play" && !started:
+                    $('#questionContainer').show();
+                    $('#startContainer').hide();
+                    $('#pause').show();
+                    $('#play').hide();
+                    started = true;
+                    sw.start();
+                    console.log(started);
+                    // show and start timer
+                    break;
+                case buttonId == "reset":
+                    // restart timer
+                    sw.reset();
+                    sw.start();
+                    break;
+                case buttonId == "play" && started:
+                    $('#pause').show();
+                    $('#play').hide();
+                    sw.start();
+                    // continue timer
+                    break;
+                case buttonId == "pause":
+                    $('#pause').hide();
+                    $('#play').show();
+                    sw.stop();
+                    // pause timer
+                    break;
+                case buttonId == "next":
+                    sw.reset();
+                    sw.start();
+                    var nextQuestion = Math.floor(Math.random() * questions.length);
+                    while(nextQuestion == currQ){
+                        nextQuestion = Math.floor(Math.random() * questions.length);
+                    }
+                    currQ = nextQuestion;
+                    $("#displayQuestion").text(questions[currQ]);
+                    break;
+                case buttonId == "speech":
+                    if (synth.speaking){
+                        try{
+                            speechSynthesis.cancel();
+                        }catch(e){
+                            console.log(e);
+                        }
+                    }else{
+                        if (currQ){
+                            u.text = questions[currQ];
+                            u.lang = 'en-AU';
+                            u.rate = 0.95;
+                            u.pitch = 1;
+                            synth.speak(u);
+                        }   
+                    }
+                    
+                    break;
+                case buttonId == "speech-to-text":
+                var recognizing;
+                var recognition = new SpeechRecognition();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                reset();
+                recognition.onend = reset;
+                // var button = window.getElementById(buttonId)
+                // var textarea = window.getElementById("userAnswer")
+                $('#' +  buttonId).click(function(){
+                    if (recognizing) {
+                        recognition.stop();
+                        reset();
+                    } else {
+                        recognition.start();
+                        recognizing = true;
+                    //button.innerHTML = "Click to Stop";
+                    }
+                });
+
+                function reset() {
+                    recognizing = false;
+                    //button.innerHTML = "Click to Speak";
+                }
+                recognition.onresult = function (event) {
+                    var final = "";
+                    var interim = "";
+                    for (var i = 0; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        final += event.results[i][0].transcript;
+                    } else {
+                        interim += event.results[i][0].transcript;
+                    }
+                    }
+                    $('#userAnswer').val(interim);
+                }
+                break;
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+<div class="container container-fluid">
+<div class="row-fluid">
+    <nav class="navbar navbar-light">
+        <h1 style="font-weight: bolder;">Subtle Career Networking</h1>
+        <!-- <img src="/galan_logo.png" width="100" height="100" class="d-inline-block align-top" alt="" style="background-color: transparent;"> -->
+    </nav>
+</div>
+<!-- <div class="jumbotron text-center">
+        <h1 class="display-4 text-center">Interview prep</h1>
+        <p class="display-5">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+      </div> -->
+<div id="questionsContainer" style="padding: 25px;" class="row h-100">
+    <div style="position: relative; min-height: 400px;" class="col-lg-8 h-100">
+        <div style="margin-top: 5rem; position: absolute; top: 15%; left: 45%;" class="row-fluid">
+            <div id="startContainer" class="container text-center">
+                <h1>Start</h1>
+                <button id="start" class='btn btn-circle btn-lg btn-controller'> 
+                    <i class="fa fa-play" style="color: white;"></i>
+                </button>
+            </div>
+        </div>
+        <div style="min-height: 200px;height: 200px; margin: auto;" id="questionContainer" class="row-fluid">
+                <div id="stopwatch" style="width: 100%;">
+                <!-- [DISPLAY TIMER] -->
+                <div id="sw-time" style="text-align: center;"><h2>00:00:00</h2></div>
+                </div>
+                <h3 id="displayQuestion" class="text-center"></h3>
+        </div>
+        <div style="position: absolute; bottom: 25px; width: 100%;" class="row-fluid">
+                <button id="pause" class='btn btn-controller btn-circle btn-lg'> 
+                <i class="fa fa-pause"  style="color: white;"></i>
+                </button>
+                <button id="play" class='btn btn-controller btn-circle btn-lg'> 
+                   <i class="fa fa-play" style="color: white;"></i>
+                </button>
+                <button id="reset" style="margin-left: 2rem;" class='btn btn-controller btn-circle btn-lg'>
+                    <i class="fa fa-undo" style="color: white;"></i>
+                </button>
+                <button style="margin-left: 2rem;" id="next" class='btn btn-controller btn-circle btn-lg'>
+                        <i class="fa fa-forward" style="color: white;"></i>
+                </button>
+                <button style="margin-left: 2rem;" id="speech" class='btn btn-controller btn-circle btn-lg'>
+                    <i class="fa fa-volume-up" style="color: white;"></i>
+                </button>
+                <button style="margin-left: 2rem;" id="speech-to-text" class='btn btn-controller btn-circle btn-lg'>
+                        <i class="fa fa-microphone" style="color: white;"></i>
+                </button>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <!-- <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-cog" id="settings"></i></a> -->
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Answer</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-improve" role="tab" aria-controls="nav-profile" aria-selected="false">Help Us Improve</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-join" role="tab" aria-controls="nav-profile" aria-selected="false">Join Us</a>
+
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <textarea disabled id="alltext" class="form-control" rows="10" style="resize: none;">
+                </textarea>
+                <div class="input-group mb3">
+                    <textarea class="form-control custom-control" id="userAnswer" rows="3" style="resize: none;" placeholder="Your Answer..."></textarea>
+                    <div class="input-group-append">   
+                        <button class="btn" id="btnSubmitAnswer" type="button" style="background: #92969a;"><i class="fa fa-check" style="color: white;"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-improve" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div style="height: 336px; width: 100%; background: #e9ecef;">
+                    
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-join" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div style="height: 336px; width: 100%; background: #e9ecef;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

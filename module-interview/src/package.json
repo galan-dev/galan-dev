@@ -1,0 +1,32 @@
+{
+  "name": "galan-interview-module",
+  "version": "1.0.0",
+  "description": "One of Galan's host of career applications",
+  "main": "offline-routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch public -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galan-dev/galan-dev.git"
+  },
+  "keywords": [
+    "career",
+    "application",
+    "module",
+    "galan",
+    "interview"
+  ],
+  "author": "Judd Tomi Sid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galan-dev/galan-dev/issues"
+  },
+  "homepage": "https://github.com/galan-dev/galan-dev#readme",
+  "dependencies": {
+    "aws-sdk": "^2.580.0",
+    "express": "^4.17.1",
+    "node-sass": "^4.13.0"
+  }
+}
