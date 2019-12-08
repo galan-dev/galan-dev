@@ -2,7 +2,7 @@ $(document).ready(function(){
         $('#questionContainer').hide();
         $('#pause').hide();
         var questions = function(){
-            return fetch('http://localhost:3000/galan-modules/interview/{"tags": "some,other,words,that,work"}')
+            return fetch('/galan-modules/interview/{"tags": "some,other,words,that,work"}')
             .then(function(response) {
                 if (response.status !== 200) {
                     console.log('Looks like there was a problem. Status Code: ' + response.status);

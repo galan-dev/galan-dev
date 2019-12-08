@@ -2,7 +2,7 @@
 $(document).ready(function() {
     var sendFeedbackForm = function(formData){
         console.log(formData);
-         return fetch("http://localhost:3000/galan-modules/interview/user/feedback", {
+         return fetch("/galan-modules/interview/user/feedback", {
                     mode: 'cors',
                     method: 'POST',
                     credentials: 'include',
