@@ -15,16 +15,16 @@ console.log(mod1json);
 
 Object.keys(mod1json).forEach(function(key) {
     var params = {
-        TableName: "modules",
+        TableName: "galanData",
         Item: {
-            "module":  "interview-module",
+            "galanMods":  "interview-module",
             "timestamp": Date.now(),
-            "data": {
-                "type": "Gen",
+            "relData": {
+                "dataType": "Gen",
                 "questionID": Number(key),
                 "question": mod1json[key].Question,
-                "source": mod1json[key].Source,
-                "tags": mod1json[key].Tags.split(",")
+                "dataSource": mod1json[key].Source,
+                "questionTags": mod1json[key].Tags.split(",")
             }
         }
     };

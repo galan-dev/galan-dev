@@ -9,7 +9,7 @@ var dynamodb = new AWS.DynamoDB();
 
 // delete table if it exists
 var params = {
-    TableName : "modules"
+    TableName : "galanData"
 };
 
 dynamodb.deleteTable(params, function(err, data) {
@@ -22,13 +22,13 @@ dynamodb.deleteTable(params, function(err, data) {
 
 // create table
 var params = {
-    TableName : "modules",
+    TableName : "galanData",
     KeySchema: [       
-        { AttributeName: "module", KeyType: "HASH"},  //Partition key
+        { AttributeName: "galanMods", KeyType: "HASH"},  //Partition key
         { AttributeName: "timestamp", KeyType: "RANGE" }  //Sort key
     ],
     AttributeDefinitions: [       
-        { AttributeName: "module", AttributeType: "S" },
+        { AttributeName: "galanMods", AttributeType: "S" },
         { AttributeName: "timestamp", AttributeType: "N" }
     ],
 

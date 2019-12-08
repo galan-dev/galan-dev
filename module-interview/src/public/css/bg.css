@@ -2,7 +2,7 @@
  * Twitter: @kootoopas
  */
 /* Exo thin font from Google. */
- @import url(https://fonts.googleapis.com/css?family=Exo:100);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
 /* Animations */
 /* @-webkit-keyframes bg-scrolling-reverse {
@@ -78,9 +78,8 @@ textarea.form-control {
   border-top-right-radius: .25rem;
 }
 
-h1, h2, h3{
-  color: white;
-  font-family: Exo;
+h1, h2, h3,h4,h5,h6{
+  font-family: 'Open Sans', sans-serif;
 }
 
 #questionsContainer{
@@ -128,4 +127,100 @@ background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, F
 
 h3 {
   font-size: calc(100% + 1vw + 1vh);
+}
+
+#joinus{
+  padding:15px;
+  padding-top: 20px;
+}
+
+#joinus a{
+  padding: 10px 15px;
+}
+
+#joinus a:hover{
+  text-decoration: none;
+  color: white;
+}
+
+#joinus-text{
+  margin: 10px;
+  margin-bottom: 20px;
+  font-size: calc(50% + 0.3vw + 0.3vh);
+
+}
+
+.feedback-inputs{
+  border: 1px solid grey;
+}
+
+.btn-remote{
+  margin-left: 2rem;
+}
+
+.form-group{
+  padding-top:10px;
+}
+
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+ 
+/* Portrait */
+ 
+@media only screen
+ 
+and (min-device-width: 375px)
+ 
+and (max-device-width: 667px)
+ 
+and (-webkit-min-device-pixel-ratio: 2)
+ 
+and (orientation: portrait) {
+ .btn-remote{
+   margin-left: 1rem;
+ }
+}
+ 
+/* Landscape */
+ 
+@media only screen
+ 
+and (min-device-width: 375px)
+ 
+and (max-device-width: 667px)
+ 
+and (-webkit-min-device-pixel-ratio: 2)
+ 
+and (orientation: landscape) {
+ 
+}
+ 
+/* ----------- Google Pixel ----------- */
+ 
+/* Portrait */
+ 
+@media screen
+ 
+and (device-width: 360px)
+ 
+and (device-height: 640px)
+ 
+and (-webkit-device-pixel-ratio: 3)
+ 
+and (orientation: portrait) {
+ 
+}
+ 
+/* Landscape */
+ 
+@media screen
+ 
+and (device-width: 360px)
+ 
+and (device-height: 640px)
+ 
+and (-webkit-device-pixel-ratio: 3)
+ 
+and (orientation: landscape) {
+ 
 }
