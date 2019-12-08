@@ -10,7 +10,7 @@ var router = express.Router();
 
 AWS.config.update({
   region: "us-east-2",
-  endpoint: "http://localhost:8000"
+  endpoint: "https://dynamodb.us-east-2.amazonaws.com"
 });
 
 var table = "galanData";
