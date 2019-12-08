@@ -10,7 +10,7 @@ var router = express.Router();
 
 AWS.config.update({
   region: "us-east-2",
-  endpoint: "https://dynamodb.us-east-2.amazonaws.com"
+  endpoint: "https://dynamodb.us-east-2.amazonaws.com" // "https://dynamodb.us-east-2.amazonaws.com" "http://localhost:8000"
 });
 
 var table = "galanData";
@@ -36,6 +36,29 @@ router.use("/interview/:tags", function(req, res, next){
         res.status(404);
         res.json("Empty request, questions need filter");
     }else{
+    var docClient = new AWS.DynamoDB.DocumentClient();
+
+    var params = {
+        TableName: table,
+        Item: {
+            "galanMods":  "interview-module",
+            "timestamp": Date.now(),
+            "relData": {
+                "dataType": "User",
+                "dataSource": "interview module feedback form",
+                "interviewMod": 1,
+            }
+        }
+    };
+
+    console.log("Adding a new item...");
+    docClient.put(params, function(err, data) {
+        if (err) {
+            console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("Added item:", JSON.stringify(data, null, 2));
+        }
+    });
         next()
     }
 })

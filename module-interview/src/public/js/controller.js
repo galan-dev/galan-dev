@@ -90,6 +90,8 @@ $(document).ready(function(){
                     break;
                 case buttonId == "reset":
                     // restart timer
+                    $('#pause').show();
+                    $('#play').hide();
                     sw.reset();
                     sw.start();
                     $('#userAnswer').val("");
