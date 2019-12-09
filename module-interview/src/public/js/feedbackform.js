@@ -40,8 +40,7 @@ $(document).ready(function() {
             }
         }
 
-        if (compareStr.includes("speechtotextuseful")
-        && compareStr.includes("videouseful")
+        if (compareStr.includes("videouseful")
         && commentVal != ''){
             canSend = true;
         }
