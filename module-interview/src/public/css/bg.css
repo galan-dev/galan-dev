@@ -162,6 +162,11 @@ h3 {
   padding-top:10px;
 }
 
+#displayQuestion{
+  width: 400px;
+  font-size: calc(100% + 0.3vw + 0.3vh);
+}
+
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
  
@@ -179,6 +184,11 @@ and (orientation: portrait) {
  .btn-remote{
    margin-left: 1rem;
  }
+
+ #displayQuestion{
+  width: 100%;
+}
+
 }
  
 /* Landscape */
@@ -208,7 +218,13 @@ and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 3)
  
 and (orientation: portrait) {
+  .btn-remote{
+    margin-left: 1rem;
+  }
  
+  #displayQuestion{
+   width: 100%;
+ }
 }
  
 /* Landscape */
@@ -223,4 +239,14 @@ and (-webkit-device-pixel-ratio: 3)
  
 and (orientation: landscape) {
  
+}
+
+@media (max-width: 500px) {
+  .btn-remote{
+    margin-left: 1rem;
+  }
+ 
+  #displayQuestion{
+   width: 100%;
+ }
 }

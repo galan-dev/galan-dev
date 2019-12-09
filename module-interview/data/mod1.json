@@ -2,17 +2,17 @@
     "0": {
         "Question": "Tell me about a time where you felt defeated; e.g., your project was falling apart, you were unable to meet your boss\u2019s timeline goals, your idea was dismissed, etc. How did you respond to the adversity?",
         "Source": "https://www.entrepreneur.com/article/319713",
-        "Tags": "Behavioral,Test"
+        "Tags": "Behavioral"
     },
     "1": {
         "Question": "Describe a time when you were asked to perform a task or spearhead an initiative that went against your values. What did you do? What was the outcome?",
         "Source": "https://www.entrepreneur.com/article/319714",
-        "Tags": "Behavioral,Test"
+        "Tags": "Behavioral"
     },
     "2": {
         "Question": "Think about the most exciting and energizing aspect of your current or most recent position. What did you specifically enjoy about it? Why?",
         "Source": "https://www.entrepreneur.com/article/319715",
-        "Tags": "Behavioral,Test"
+        "Tags": "Behavioral"
     },
     "3": {
         "Question": "Think back to one of the most energy-depleting periods in your current or most recent position. What was going on? How did you respond to it? What was the outcome?",
@@ -52,6 +52,231 @@
     "10": {
         "Question": "Tell me about a time you made a blunder on the job that cost your company time or money. How did you handle the aftermath?",
         "Source": "https://www.entrepreneur.com/article/319723",
+        "Tags": "Behavioral"
+    },
+    "11": {
+        "Question": "Talk about a time when you had to work closely with someone whose personality was very different from yours.",
+        "Source": "https://www.themuse.com/advice/30-behavioral-interview-questions-you-should-be-ready-to-answer",
+        "Tags": "Behavioral"
+    },
+    "12": {
+        "Question": "Give me an example of a time you faced a conflict while working on a team. How did you handle that?",
+        "Source": "https://www.themuse.com/advice/30-behavioral-interview-questions-you-should-be-ready-to-answer",
+        "Tags": "Behavioral"
+    },
+    "13": {
+        "Question": "If there was one obstacle or issue that you can foresee that might prevent you from hitting a deadline, what would it be?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "14": {
+        "Question": "Tell us about how you've dealt with unexpected changes to deadlines or project scope.",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "15": {
+        "Question": "Describe the project that you had the most trouble with. What would you have done differently?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "16": {
+        "Question": "How do you defend your judgement to team members and stakeholders?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "17": {
+        "Question": "Talk about a time where you had to make a decision in a lot of ambiguity",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "18": {
+        "Question": "How would you handle a situation in which you were getting a lot of negative feedback in the middle of a presentation?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "19": {
+        "Question": "If you know there are 2 improvements that need to be made, but can only make 1, how would you prioritize?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "20": {
+        "Question": "Talk about a time you failed and how you handled it",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "21": {
+        "Question": "What was the biggest takeaway from your current job that you'll carry with you throughout your career?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "22": {
+        "Question": "How do you keep your team engaged?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "23": {
+        "Question": "Give an example of how you set goals and achieve them",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "24": {
+        "Question": "Tell me about a time when you solved a conflict at work.",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "25": {
+        "Question": "Give examples of situations where you have shown effectiveness, empathy, adaptability, & humbleness.",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "26": {
+        "Question": "How do you come up with ideas?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "27": {
+        "Question": "Do you prefer to work with a team or on your own?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "28": {
+        "Question": "Why do you want to change jobs? Why now?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "29": {
+        "Question": "Talk about your approach to solving difficult problems",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "30": {
+        "Question": "Describe a situation where you had to lead a group that had difficulties. How did you handle it?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "31": {
+        "Question": "Share an example of how you were able to motivate employees or co-workers.",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "32": {
+        "Question": "What did you do when the requirement from the stakeholder is vague",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "33": {
+        "Question": "How do you make a case for your vision and opinion?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "34": {
+        "Question": "How do you stay organized?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "35": {
+        "Question": "Do you find that you get overwhelmed often at work? How do you combat that?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "36": {
+        "Question": "Give an example of an occasion when you used logic to solve a problem.",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "37": {
+        "Question": " Who has influenced you in your career?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "38": {
+        "Question": "What advice would you give someone younger than you who is trying to come up in the field.",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "39": {
+        "Question": "What are your hobbies?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "40": {
+        "Question": "What would you do if you don't know the solution for a certain problem and nobody can help at the moment?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "41": {
+        "Question": "How do you move forward with stakeholders want to go in one direction but you don\u2019t think that\u2019s the right way to do it?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "42": {
+        "Question": "How do you work with conflicting priorities?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "43": {
+        "Question": "Have you handled a difficult situation with a coworker? How?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "44": {
+        "Question": "How do you experiment?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "45": {
+        "Question": "How do you collaborate with others?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "46": {
+        "Question": "How do you set goals?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "47": {
+        "Question": "What are your biggest weaknesses and strengths?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "48": {
+        "Question": "How do you set people up for success?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "49": {
+        "Question": "What websites do you spend a lot of time on?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "50": {
+        "Question": "Talk about a time when you had multiple requests from different people in the company. How did you handle them?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "51": {
+        "Question": "What do you think is the most important responsibility that the team has inside the company's mission?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "52": {
+        "Question": "What do you do if you disagree with your boss?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "53": {
+        "Question": "Talk about a time that you failed.",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "54": {
+        "Question": "Talk about a time in your career where you made a mistake. What was the mistake, what were the results, and what did you learn from the experience?",
+        "Source": "Generated",
+        "Tags": "Behavioral"
+    },
+    "55": {
+        "Question": "Let's say a project you are working on is on hold, and your PM has not assigned another project for you to do in the meantime. How would you spend your time while waiting for the project to pick up again?",
+        "Source": "Generated",
         "Tags": "Behavioral"
     }
 }

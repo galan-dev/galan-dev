@@ -10,7 +10,7 @@ var router = express.Router();
 
 AWS.config.update({
   region: "us-east-2",
-  endpoint: "https://dynamodb.us-east-2.amazonaws.com" // "https://dynamodb.us-east-2.amazonaws.com" "http://localhost:8000"
+  endpoint: "https://dynamodb.us-east-2.amazonaws.com"// "https://dynamodb.us-east-2.amazonaws.com" "http://localhost:8000"
 });
 
 var table = "galanData";
@@ -153,7 +153,7 @@ router.post("/interview/user/feedback", function(req, res){
         }
     };
 
-    console.log("Adding a new item...");
+    console.log("Adding a new item: Feedback");
     docClient.put(params, function(err, data) {
         if (err) {
             console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
@@ -165,7 +165,55 @@ router.post("/interview/user/feedback", function(req, res){
     res.status(200);
     res.json('<div class="modal-body"><div class="container" id="thankYouContainer"><div class="row"><i class="fa fa-check-circle fa-3x" style="color:chartreuse; text-align: center; width: 100%;"></i><h3 style="text-align: center; width: 100%;">Thank You</h3></div><div class="row"><h6 style="text-align: justify;">We appreciate the time you spent to give feedback. We thoroughly consider all inputs.</h6></div></div></div>');
 });
+// Question Suggestion
 
+router.use("/interview/user/suggestion", function(req, res, next){
+    res.set(
+        {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        }
+    );
+    if (req.header('Module') != 'interview-module'){
+        res.status(400);
+        res.json('message: bad requests not made from Galan app');
+    } else{
+        next()
+    }
+        // res.json("Empty request, questions need filter");
+})
+
+router.post("/interview/user/suggestion", function(req, res){
+    var data  = req.body;
+    console.log(data.data);
+
+    var docClient = new AWS.DynamoDB.DocumentClient();
+
+    var params = {
+        TableName: table,
+        Item: {
+            "galanMods":  "interview-module",
+            "timestamp": Date.now(),
+            "relData": {
+                "dataType": "User",
+                "dataSource": "suggest a question form",
+                "formData": data.data,
+            }
+        }
+    };
+
+    console.log("Adding a new item: Question");
+    docClient.put(params, function(err, data) {
+        if (err) {
+            console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("Added item:", JSON.stringify(data, null, 2));
+        }
+    });
+    
+    res.status(200);
+    res.json('Question Suggestion Added: Thank You');
+});
 
 app.use('/galan-modules', router)
 

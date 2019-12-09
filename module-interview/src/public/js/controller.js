@@ -122,23 +122,23 @@ $(document).ready(function(){
                     currText = qList[currQ][1];
                     $("#displayQuestion").text(currText);
                     break;
-                case buttonId == "speech":
-                    if (synth.speaking){
-                        try{
-                            speechSynthesis.cancel();
-                        }catch(e){
-                            console.log(e);
-                        }
-                    }else{
-                        if (currQ){
-                            u.text = qList[currQ][1];
-                            u.lang = 'en-AU';
-                            u.rate = 0.95;
-                            u.pitch = 1;
-                            synth.speak(u);
-                        }   
-                    }
-                    break;
+                // case buttonId == "speech":
+                //     if (synth.speaking){
+                //         try{
+                //             speechSynthesis.cancel();
+                //         }catch(e){
+                //             console.log(e);
+                //         }
+                //     }else{
+                //         if (currQ){
+                //             u.text = qList[currQ][1];
+                //             u.lang = 'en-AU';
+                //             u.rate = 0.95;
+                //             u.pitch = 1;
+                //             synth.speak(u);
+                //         }   
+                //     }
+                //     break;
                 case buttonId == "btnSubmitAnswer":
                     if(/([^\s])/.test($("#userAnswer").val().toString())){
                         $('#alltext').append('\n' + 'Q: ' + $("#displayQuestion").text());
@@ -162,52 +162,52 @@ $(document).ready(function(){
                             alert("please enter your answer")
                     }
                     break;
-                case buttonId == "speech-to-text":
-                    var recognizing;
-                    var recognition = new SpeechRecognition();
-                    recognition.continuous = true;
-                    recognition.interimResults = true;
-                    reset();
-                    // recognition.onend = reset;
-                    var final_transcript = '';
-                    // var button = window.getElementById(buttonId)
-                    // var textarea = window.getElementById("userAnswer")
-                    $('#' +  buttonId).click(function(){
-                        if (recognizing) {
-                            recognition.stop();
-                            reset();
-                        } else {
-                            recognition.start();
-                            recognizing = true;
-                            console.log('Ready to receive a command.');
-                        //button.innerHTML = "Click to Stop";
-                        }
-                    });
+                // case buttonId == "speech-to-text":
+                //     var recognizing;
+                //     var recognition = new SpeechRecognition();
+                //     recognition.continuous = true;
+                //     recognition.interimResults = true;
+                //     reset();
+                //     // recognition.onend = reset;
+                //     var final_transcript = '';
+                //     // var button = window.getElementById(buttonId)
+                //     // var textarea = window.getElementById("userAnswer")
+                //     $('#' +  buttonId).click(function(){
+                //         if (recognizing) {
+                //             recognition.stop();
+                //             reset();
+                //         } else {
+                //             recognition.start();
+                //             recognizing = true;
+                //             console.log('Ready to receive a command.');
+                //         //button.innerHTML = "Click to Stop";
+                //         }
+                //     });
 
-                    function reset() {
-                        recognizing = false;
-                        //button.innerHTML = "Click to Speak";
-                    }
-                    recognition.onresult = function (event) {
-                        var final = "";
-                        var interim = "";
-                        for (var i = 0; i < event.results.length; ++i) {
-                            if (event.results[i].isFinal) {
-                                final += event.results[i][0].transcript;
-                            } else {
-                                interim += event.results[i][0].transcript;
-                                //$('#userAnswer').val();
-                            }
-                            $('#userAnswer').val(interim);
-                        }
-                        $('#userAnswer').val(final);
-                    }
+                //     function reset() {
+                //         recognizing = false;
+                //         //button.innerHTML = "Click to Speak";
+                //     }
+                //     recognition.onresult = function (event) {
+                //         var final = "";
+                //         var interim = "";
+                //         for (var i = 0; i < event.results.length; ++i) {
+                //             if (event.results[i].isFinal) {
+                //                 final += event.results[i][0].transcript;
+                //             } else {
+                //                 interim += event.results[i][0].transcript;
+                //                 //$('#userAnswer').val();
+                //             }
+                //             $('#userAnswer').val(interim);
+                //         }
+                //         $('#userAnswer').val(final);
+                //     }
 
-                    recognition.onspeechend = function() {
-                        recognition.stop();
-                        console.log('Speech recognition has stopped.');
-                    }
-                    break;
+                //     recognition.onspeechend = function() {
+                //         recognition.stop();
+                //         console.log('Speech recognition has stopped.');
+                //     }
+                //     break;
             }
         });
     });
