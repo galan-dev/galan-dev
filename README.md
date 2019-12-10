@@ -1,2 +1,1 @@
-# galan-dev
-all the code goodies for Galan
+## This is where the current application lives
