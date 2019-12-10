@@ -1,11 +1,11 @@
-version: 1.0
+version: 0.0
 os: linux
 files:
   - source: /
-    destination: /usr/module-interview/src
+    destination: /usr/galan-dev
     overwrite: true
 permissions:
-  - object: /usr/module-interview/src/codedeploy
+  - object: /usr/galan-dev/codedeploy
     pattern: "*.sh"
     owner: root
     group: root
