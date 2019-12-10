@@ -10,11 +10,11 @@ yum -y install nodejs
 npm install -g pm2
 pm2 update
 
-export app_root=/usr/module-interview/src
+export app_root=/usr/galan-dev
 if [ -d "$app_root" ];then
-    rm -rf /usr/cddemo
-    mkdir -p /usr/cddemo
+    rm -rf /usr/galan-dev
+    mkdir -p /usr/galan-dev
 else
-    mkdir -p /usr/cddemo
+    mkdir -p /usr/galan-dev
 fi
 
