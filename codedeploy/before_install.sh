@@ -4,7 +4,7 @@
 
 yum -y update
 
-curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
+curl --silent --location https://rpm.nodesource.com/setup_13.x | bash -
 yum -y install nodejs
 
 npm install -g pm2
