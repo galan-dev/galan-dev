@@ -5,7 +5,9 @@ cd /usr/galan-dev
 service nginx start
 if pgrep -x "node" > /dev/null
 then
-    echo "App Start: Node is already running to cont.."
+    echo "App Start: Node is already running so stop and run new.."
+    killall -9 node
+    npm start &
 else
     echo "App Start: Node Not Running so Start"
     npm start &
