@@ -7,7 +7,7 @@ const cors = require('cors')
 
 var AWS = require("aws-sdk");
 var router = express.Router();
-
+// use dynamo endpoint
 AWS.config.update({
   region: "us-east-2",
   endpoint: "https://dynamodb.us-east-2.amazonaws.com"// "https://dynamodb.us-east-2.amazonaws.com" "http://localhost:8000"
