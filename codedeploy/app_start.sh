@@ -7,9 +7,9 @@ if pgrep -x "node" > /dev/null
 then
     echo "App Start: Node is already running so stop and run new.."
     killall -9 node
-    npm start && exit 0
+    npm start > /dev/null 2> /dev/null < /dev/null & echo $! > node.pid
 else
     echo "App Start: Node Not Running so Start" 
-    npm start && exit 0
+    npm start > /dev/null 2> /dev/null < /dev/null & echo $! > node.pid
 fi
 # pm2 start /usr/galan-dev/bin/www -n www -f
